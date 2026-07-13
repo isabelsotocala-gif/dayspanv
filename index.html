@@ -6,6 +6,70 @@
 <title>Dayspan — Date Calculator</title>
 <meta name="description" content="Calculate the days between two dates, add or subtract time, and browse any calendar year from 2000 to 2100.">
 <meta name="google-site-verification" content="sfbq1yqA3WJec_MLC9QDIsgIpJ1K7Y0L-TF5xY--tjg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate the number of days between two dates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the 'Between two dates' tab above. Enter a start date and an end date, and Dayspan instantly shows the total number of days, along with a breakdown into years, months, and weeks. It also draws a visual timeline strip so you can see the span at a glance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add or subtract days from a date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Switch to the 'Add or subtract' tab, enter a starting date, type in a number, choose whether to add or subtract, and pick a unit (days, weeks, months, or years). Dayspan calculates the resulting date and tells you which day of the week it falls on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see a full year calendar, not just one month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Open the 'Calendar' tab and switch the view to 'Whole year' to see all twelve months at once for any year between 2000 and 2100. You can also step through individual months with the arrow buttons or jump straight to today."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a leap year calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A year is a leap year if it's divisible by 4, except for century years (divisible by 100), which are only leap years if they're also divisible by 400. That's why 2000 was a leap year but 1900 was not. Dayspan automatically accounts for leap years in every date calculation, so day counts and calendar views are always accurate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Dayspan to calculate someone's age in days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — enter their birth date as the 'From' date and today's date as the 'To' date in the 'Between two dates' tab. Dayspan will show the exact number of days, plus a full years/months breakdown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Dayspan account for different time zones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dayspan calculates using calendar dates rather than exact timestamps, so results are the same regardless of your time zone — useful for deadlines, due dates, and event countdowns where the specific date matters more than the exact hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Dayspan free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Dayspan is completely free, with no account or sign-up required. All calculations run directly in your browser."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -491,6 +555,83 @@
     font-weight:600;
   }
 
+  /* SEO content block */
+  .seo-content{
+    margin-top:56px;
+  }
+  .seo-block{
+    margin-bottom:40px;
+  }
+  .seo-h1{
+    font-family:'Newsreader', serif;
+    font-weight:600;
+    font-size:clamp(24px, 4vw, 30px);
+    color:var(--ink);
+    margin:0 0 16px;
+    letter-spacing:-0.01em;
+  }
+  .seo-h2{
+    font-family:'Newsreader', serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--ink);
+    margin:0 0 18px;
+  }
+  .seo-block p{
+    font-family:'Work Sans', sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--muted);
+    max-width:68ch;
+    margin:0 0 14px;
+  }
+  .faq-list{
+    display:flex;
+    flex-direction:column;
+    gap:1px;
+    background:var(--hair);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+  }
+  .faq-item{
+    background:var(--surface);
+    padding:2px 0;
+  }
+  .faq-item summary{
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+    padding:16px 20px;
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{
+    content:'+';
+    font-family:'Newsreader', serif;
+    font-size:20px;
+    color:var(--forest);
+    flex:0 0 auto;
+    transition:transform 0.2s ease;
+  }
+  .faq-item[open] summary::after{ content:'−'; }
+  .faq-item summary:hover{ color:var(--forest); }
+  .faq-item summary:focus-visible{ outline:2px solid var(--forest); outline-offset:-2px; }
+  .faq-item p{
+    font-family:'Work Sans', sans-serif;
+    font-size:14.5px;
+    line-height:1.7;
+    color:var(--muted);
+    padding:0 20px 18px;
+    margin:0;
+    max-width:68ch;
+  }
+
   footer{
     margin-top:64px;
     padding-top:22px;
@@ -635,6 +776,49 @@
 
       <div id="cal-year-view" style="display:none;">
         <div class="cal-year-grid" id="cal-year-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO CONTENT -->
+  <section class="seo-content">
+    <div class="seo-block">
+      <h1 class="seo-h1">Dayspan — a fast, free date calculator</h1>
+      <p>Dayspan helps you work out the number of days between two dates, add or subtract days, weeks, months, or years from a date, and browse any calendar from 2000 to 2100 — all instantly, in your browser, with no sign-up required.</p>
+      <p>Whether you're counting down to an event, figuring out a deadline, calculating someone's exact age, or just need to know what day of the week a date falls on, Dayspan gives you the answer immediately as you type. Every calculation happens locally on your device, so nothing you enter is ever sent to a server.</p>
+    </div>
+
+    <div class="seo-block">
+      <h2 class="seo-h2">Frequently asked questions</h2>
+      <div class="faq-list" id="faq-list">
+        <details class="faq-item" open>
+          <summary>How do I calculate the number of days between two dates?</summary>
+          <p>Use the "Between two dates" tab above. Enter a start date and an end date, and Dayspan instantly shows the total number of days, along with a breakdown into years, months, and weeks. It also draws a visual timeline strip so you can see the span at a glance.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I add or subtract days from a date?</summary>
+          <p>Switch to the "Add or subtract" tab, enter a starting date, type in a number, choose whether to add or subtract, and pick a unit (days, weeks, months, or years). Dayspan calculates the resulting date and tells you which day of the week it falls on.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I see a full year calendar, not just one month?</summary>
+          <p>Yes. Open the "Calendar" tab and switch the view to "Whole year" to see all twelve months at once for any year between 2000 and 2100. You can also step through individual months with the arrow buttons or jump straight to today.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is a leap year calculated?</summary>
+          <p>A year is a leap year if it's divisible by 4, except for century years (divisible by 100), which are only leap years if they're also divisible by 400. That's why 2000 was a leap year but 1900 was not. Dayspan automatically accounts for leap years in every date calculation, so day counts and calendar views are always accurate.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use Dayspan to calculate someone's age in days?</summary>
+          <p>Yes — enter their birth date as the "From" date and today's date as the "To" date in the "Between two dates" tab. Dayspan will show the exact number of days, plus a full years/months breakdown.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does Dayspan account for different time zones?</summary>
+          <p>Dayspan calculates using calendar dates rather than exact timestamps, so results are the same regardless of your time zone — useful for deadlines, due dates, and event countdowns where the specific date matters more than the exact hour.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is Dayspan free to use?</summary>
+          <p>Yes, Dayspan is completely free, with no account or sign-up required. All calculations run directly in your browser.</p>
+        </details>
       </div>
     </div>
   </section>
